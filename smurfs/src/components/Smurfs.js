@@ -11,3 +11,5 @@ const Smurfs = props => {
     </div>
   );
 };
+
+export default Smurfs;
