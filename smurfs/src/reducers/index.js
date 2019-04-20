@@ -5,9 +5,9 @@ import {
   FETCHING_SMURF,
   FETCHING_SUCCESS,
   FETCHING_FAILURE,
-  POSTING_SMURF,
-  POSTING_SUCCESS,
-  POSTING_FAILURE
+  POST_SMURF,
+  POST_SUCCESS,
+  POST_FAILURE
 } from "../actions";
 /*
  Your initial/default state for this project could *Although does not have to* look a lot like this
@@ -55,6 +55,27 @@ const smurfReducer = (state = initialState, action) => {
       };
 
     case FETCHING_FAILURE:
+      return {
+        ...state,
+        errorStatusCode: action.payload.status
+      };
+
+    case POST_SMURF:
+      return {
+        ...state,
+        error: "",
+        isPosting: true
+      };
+
+    case POST_SUCCESS:
+      return {
+        ...state,
+        error: "",
+        isPosting: false,
+        smurfs: action.payload
+      };
+
+    case POST_FAILURE:
       return {
         ...state,
         errorStatusCode: action.payload.status
