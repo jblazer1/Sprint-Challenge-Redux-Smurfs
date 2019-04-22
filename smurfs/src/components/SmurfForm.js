@@ -4,14 +4,14 @@ import { connect } from "react-redux";
 import { postSmurf } from "../actions";
 
 class SmurfForm extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     name: "",
-  //     age: "",
-  //     height: ""
-  //   };
-  // }
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: "",
+      age: "",
+      height: ""
+    };
+  }
 
   //   addSmurf = event => {
   //     event.preventDefault();
@@ -26,7 +26,7 @@ class SmurfForm extends React.Component {
 
   addSmurf = e => {
     e.preventDefault();
-    this.props.postSmurf(this.props.smurfs);
+    postSmurf(name, age, height);
   };
 
   handleInputChange = e => {
@@ -38,21 +38,22 @@ class SmurfForm extends React.Component {
       <div className="SmurfForm">
         <form onSubmit={this.addSmurf}>
           <input
+            // type="text"
             onChange={this.handleInputChange}
             placeholder="name"
-            value={this.props.name}
+            value={this.name}
             name="name"
           />
           <input
             onChange={this.handleInputChange}
             placeholder="age"
-            value={this.props.age}
+            value={this.age}
             name="age"
           />
           <input
             onChange={this.handleInputChange}
             placeholder="height"
-            value={this.props.height}
+            value={this.height}
             name="height"
           />
           <button type="submit">Add to the village</button>
